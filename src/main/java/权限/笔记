@@ -1,0 +1,12 @@
+权限修饰符
+	用于控制被修饰变量、方法、类的可见范围. 
+	public 的访问级别是最高的，其次是 protected、默认和 private. 
+	成员变量和成员方法可以处于4个访问级别中的一个：公开、受保护、默认或私有. 
+				public protected defailt private
+	同一个类		OK		OK			OK		OK
+	同一个包		OK		OK			OK
+	子父类		OK		OK			
+	不同包		OK		
+	
+	注：在不同包下面能够访问的权限修饰符只有： pulbic 与protected，但是 protected 必须要有继承的
+关系才能够访问。

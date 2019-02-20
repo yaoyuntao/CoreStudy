@@ -1,0 +1,26 @@
+JavaBean：(Students)
+	JavaBean就是一个类，在开发中常用封装数据。具有如下特性
+		1.需要实现接口：java.io.Serializable ，通常实现接口这步骤省略了，不会影响程序。
+		2.提供私有字段：private 类型 字段名;
+		3.提供getter/setter方法：
+		4.提供无参构造
+
+
+DBUtils：(Demo2)
+	DBUtils是java编程中的数据库操作实用工具，小巧简单实用。
+	DBUtils封装了对JDBC的操作，简化了JDBC操作，可以少写代码。
+	Dbutils三个核心功能介绍
+		QueryRunner中提供对sql语句操作的API.
+			update()			增删改
+			query()				查
+		ResultSetHandler接口，用于定义select操作后，怎样封装结果集.
+			ArrayHandler		将结果集中的第一条记录封装到一个Object[]数组中，数组中的每一个元素就是这条记录中的每一个字段的值
+			ArrayListHandler	将结果集中的每一条记录都封装到一个Object[]数组中，将这些数组在封装到List集合中。
+			BeanHandler			将结果集中第一条记录封装到一个指定的javaBean中。
+			BeanListHandler		将结果集中每一条记录封装到指定的javaBean中，将这些javaBean在封装到List集合中
+			ColumnListHandler	将结果集中指定的列的字段值，封装到一个List集合中
+			ScalarHandler		它是用于单数据。例如select count(*) from 表操作。
+			MapHandler			将结果集第一行封装到Map集合中,Key 列名, Value 该列数据
+			MapListHandler		将结果集第一行封装到Map集合中,Key 列名, Value 该列数据,Map集合存储到List集合
+		DbUtils类，它就是一个工具类,定义了关闭资源与事务处理的方法
+			closeQuietly()

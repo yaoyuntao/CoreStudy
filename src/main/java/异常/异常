@@ -1,0 +1,28 @@
+Throwable
+	是所有错误或异常的父类
+	Exception	
+		异常，感冒，发烧
+		可继续执行
+		RuntimeException
+			运行时异常
+	Error
+		错误，癌症，残疾
+		必须修改代码
+使用场景：
+	throws		由调用者处理异常，调用者可选择捕获或抛出
+	try-catch	捕获异常，一般调用了throws的方法后，都要捕获异常
+	
+编译异常：
+	调用了抛出异常的方法，不处理会导致编译失败
+运行时异常：
+	抛出RuntimeException或其子类
+	不需要throws
+	如：运行时异常
+	注：出现运行时异常，需要修改代码
+限制：
+	父类方法不抛异常，子类只能try-catch
+异常信息的处理：
+	String getMessage()			对异常信息的简短描述
+	String toString()			对异常信息的详细描述
+	最详细
+	void printStackTrace()		将异常信息追踪到标准的错误流（将异常信息输出到控制台）

@@ -1,0 +1,51 @@
+反射的概念：（不改动源代码的情况下，给一个新的类随时都能运行）
+	JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都
+能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。
+
+反射的三种加载方式：（Demo1）
+	对象获取					students.getClass()
+	类名获取					Students.class
+	Class类的静态方法获取		Class.forName(包名.Students)
+
+获取公共的构造方法：（Demo2）
+			啃死chua克特
+	无参		Constructor<Students> constructor= class.getConstructor()
+	有参		Constructor<Students> constructor= class.getConstructor(String.class, int.class)
+										牛银丝ten丝
+	执行无参构造方法		constructor.newInstance()
+	执行有参构造方法		constructor.newInstance("张三", 18)
+	
+快速通过调用无参构造获取类对象：（Demo3）
+	前提：
+		被反射的类必须有无参的构造方法
+		构造方法的权限必须是public
+	class.newInstance()
+	
+获取成员变量并赋值：（Demo4）
+	前提：
+		成员变量的权限必须是public
+	Field field = class.getField("name")
+	field.set(students, "张三")
+	获取私有变量
+		getDeclaredField()
+	
+获取公共的成员方法：（Demo5）
+	前提：
+		成员方法的权限必须是public
+	无参：
+		Method method = class.getMethod("study");
+		method.invoke(students);
+	有参：
+		Method method = class.getMethod("speak", String.class, int.class);
+		method.invoke(students, "张三", 18);
+	获取私有方法
+		getDeclaredMethod()
+泛型擦除：（Demo6）
+	例：
+		正常情况下String类型的list集合，只能存储String类型的元素，由于编译后的class文件是没有泛型的，
+	故可直接通过class文件对象获取add方法，传入任何类型
+
+通过配置文件运行反射：
+	使用Properties配置类名和方法名
+	主程序加载配置文件，读取类名和方法名
+	变量替换写死的类名和方法名

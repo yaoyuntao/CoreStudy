@@ -1,0 +1,40 @@
+输入与输出：
+	输入：把数据从磁盘读取到内存中
+	输出：把数据从内存写入到磁盘中
+File类：
+	1.与系统无关
+	2.文件、文件夹和路径名的抽象表现形式。
+抽象基类：（所有IO流的父类）
+	字节流	OutputStream	InputStream			（全能流）
+	字符流	Writer			Reader
+IO子类：
+	字节流	FileOutputStream		FileInputStream
+	转换流	OutputStreamWriter		InputStreamReader
+	高效流	BufferedOutputStream	BufferedInputStream
+	
+	字符流	FileWriter				FileReader
+	高效流	BufferedWriter			BufferedReader
+使用准则：
+	1.数据源存不存在
+				数据源存在			数据源不存在
+		读：		直接读取				抛异常
+		写：		覆盖还是追加			新建
+	2.确定是读还是写
+		读	InputStream		Reader
+		写	OutputStream	Writer
+	3.文件操作分两种：文本文件（打开后能看懂的）和非文本文件
+		读：
+			文本文件使用Reader抽象类的子类
+			非文本文件使用InputStream抽象类的子类
+		写：
+			文本文件使用Writer抽象类的子类
+			非文本文件使用OutputStream抽象类的子类
+	4.数据的位置：
+		磁盘：可以new File,然后传给输入或输出流
+		内存：用内存流
+		键盘：System.in
+		网络：Socket,网络中的数据传输，网络传输必用字节流
+	5.额外功能
+		高效：用Buffered开头的子类+数组
+			Buffered
+		转码：用转换流

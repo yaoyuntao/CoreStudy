@@ -1,0 +1,66 @@
+javaScript
+	是一门脚本语言，用于开发交互式的web页面，不需要编译，浏览器直接解释执行。
+组成：
+	ECMAScript:核心语法、语句
+	BOM:浏览器对象
+	DOM:Document Object Model操作文档中的元素和内容
+引入：
+	内嵌式
+		在html中通过<script>标签引入js代码
+		<script type="text/javascript"></script>
+	外联式
+		在html中通过<script>标签引入js文件
+		<script src="1.js" type="text/javascript" charset="utf-8"></script>
+变量：
+	规范：
+		必须以字母或下划线开头
+		不能包含空格
+		不能使用关键词
+		严格区分大小写
+	声明：（可不声明，直接使用）
+		var 变量名;
+	赋值：
+		var 变量名 = 值;
+数据类型：
+	基本类型：
+		Undefined		变量未初始化就是undefined，undefined表示声明了未赋值
+		Null			null表示空，是一个占位符
+		Boolean		true/false
+		Number		任意数字
+		String		单引号或双引号
+		Object（null）	引用类型，null表示不存在
+	引用类型：
+		类的引用值，默认是null。js有众多的预定义引用类型
+运算符：
+	算术
+		+ - * / % ++ --
+	赋值
+		= += -= *= /= %=
+	比较
+		== === != > < >= <=
+		==会尝试转换类型进行比较，===则不会
+		var a=66;
+		var b="66";
+		alert(a==b);	true
+		alert(a===b); 	false
+	逻辑
+		&& || !
+分支循环与JAVA一样
+
+函数：
+	
+
+获取元素内容：
+	document.getElementById("")		获取元素
+	document.getElementById("").value		获取元素的value值
+正则：
+	两种方式：
+		1.String对象的match方法
+		2.正则对象的test方法
+	
+	
+	
+	
+	
+	
+	

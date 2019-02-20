@@ -1,0 +1,99 @@
+Html
+	超文本标记语言
+		超文本表示页面可以包含图片、文字和视频
+		标记语言是指标签对内容进行描述的一门语言
+	浏览器解析执行
+规范：
+	1.文件名以.html或.htm结束，建议使用.html
+	2.结构组成<head></head><body></body>	
+	3.标签是由开始和结束标签组成
+	4.标签名忽略大小写，建议小写
+标签：
+	<!-- -->注释
+	<hn>标题标签
+		n表示1-6		1最大6最小
+	<hr>水平线标签
+		size	水平线的高度，单位为像素
+		noshade	表示没有阴影
+	<font>字体尺寸和颜色
+		size	字体的大小1-7,浏览器默认3
+		color	字体的颜色
+	<b>粗体
+	<i>斜体
+	<p>段落标签
+	<br/>换行
+	<img>引入图片
+		src		图片的路径
+		alt		图片无法显示时替代的文本
+		width	图像的宽度
+		height	图像的高度
+	<ol>有序列表		不是真正的排列顺序，而是类似于1. 2. 3. 4.
+		type	符号类型（A、a、1、I、i）
+	<ul>无序列表
+		type	符号类型（disc实心圆、square方块、circle空心圆）
+	<li>列表项	是ol和ul的子标签
+	<a>超链接
+		href	跳转的链接
+		target	以何种方式打开链接
+			_blank		新窗口打开
+			_self		默认，当前窗口打开
+	<table>表格
+		border			表格边框的宽度
+		width			表格的高度
+		cellpadding		单元边沿与其内容之间的空白
+		cellspacing		单元格之间的空白
+		bgcolor			表格的背景颜色
+	<tr>行
+	<td>列
+		colspan			单元格横跨的列数
+		rowspan			单元格横跨的行数
+		align			单元格内容的对齐方式（left、right、center）
+		nowrap			单元格的内容是否折行
+	<th>标题行，单元格内容默认居中
+	<frameset>多个页面整合到一起的框架集
+	<frame>框架子标签
+		src			页面的路径
+		noresize	框架分隔先不能移动
+		target		确定需要显示的页面在何处显示
+	<form>表单
+		action		请求路径（接口地址）
+		method		请求方式
+			get		默认
+			post	
+	<input>输入域
+		type
+			text		文本框
+			password	密码框
+			radio		单选框
+			submit		提交按钮，提交表单
+			checkbox	复选框
+			file		文件上传组件
+			hidden		隐藏字段，提交时会发送的服务器
+			reset		重置按钮
+			image		图形提交按钮
+			button		普通按钮，与js结合使用
+		name 			必填项，参数名
+		value			属性值
+		size			大小
+		checked			默认选中单选按钮或复选框
+		readonly		是否只读
+		disabled		是否可用
+		maxlength		允许输入的最大长度
+	<select>下拉列表
+		name			参数名
+		multiple		默认单选，取值multiple表示多选
+		size			多选时可见选项的数目
+	<option>select的子标签
+		selected		选中当前项
+		value			属性值
+	<textarea>文本域
+		cols			文本域的列数
+		rows			文本域的行数
+	<button>按钮
+		type		button/reaer/submit	普通、重置、提交
+	<div>块级元素（单独显示一行），结合css使用，主要是用于页面布局
+	<span>行级元素（和后续内容在一行显示），结合css使用，主要是用于对括起来的内容进行样式的修饰
+		
+		
+		
+		

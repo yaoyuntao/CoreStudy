@@ -1,0 +1,37 @@
+Map接口
+	键值对，键不能重复
+子类：
+	HashMap			元素无序
+	LinkedHashMap	元素有序
+	
+HashMap与LinkedHashMap的区别：
+	都是map接口的实现类
+	HashMap的元素是无序的，LinkedHashMap的元素是有序的
+
+方法：
+	get()
+	put()
+	remove()
+遍历:
+	1.map的键放入set集合，遍历set集合，然后根据键查找值
+	2.将map转换成set集合，泛型是Map.Entry,通过遍历set集合得到Map.Entry,即可获得key和value
+
+	增强for不能直接遍历map，需将map转换为set
+	keySet()  	把map中所有的键放入Set集合
+	Set<String> set = map.keySet()
+	Iterator<String> iterator = set.iterator();
+	while(iterator.hasNext()){}
+	for(String str : set){}
+	
+	entrySet()
+	Set<Map.Entry<String, String>> set = map.entrySet();
+	Iterator<Map.Entry<String, String>> iterator = set.iterator();
+	while(iterator.hasNext()){
+		Map.Entry<String, String> entry = iterator.next();
+		entry.getKey();
+		entry.getValue();
+	}
+	for(Map.Entry<String, String> entry : map.entrySet()){
+		entry.getKey();
+		entry.getValue();
+	}

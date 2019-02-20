@@ -1,0 +1,117 @@
+什么是maven
+	maven是apache下的一个开源项目
+	是纯java开发
+	并且只是用来管理java项目的
+	
+maven的好处
+	依赖管理：对jar包的统一管理，可以节省空间
+	一键构建：编译  测试 运行 打包 部署
+	可以跨平台
+	应用于大型项目，可以提高开发效率
+	注：
+	编译后的文件在target目录下
+	
+安装配置
+	下载解压安装包
+	配置环境变量
+Maven仓库
+	本地仓库
+		/conf/setting.xml
+		<localRepository>D:\Software\MavenRepository</localRepository>
+	远程仓库
+		
+Maven的目录结构
+	pom.xml						核心配置文件
+	src
+		main					主目录
+			java				java代码
+			resources			配置文件
+		test					测试目录
+			java				测试java代码
+			resources			测试java代码所用到的配置文件，如果没有会默认从main中查找
+			
+Maven的常用命令
+
+	mvn clean   		清理编译的文件
+	mvn compile 		编译主目录的文件
+	mvn test  			编译并运行test目录的代码
+	mvn package 		打包
+	mvn install			把项目发布到本地仓库
+	mvn tomcat:run		tomcat一键启动
+	
+Maven私服--nexus
+	服务器端
+		安装nexus
+		配置nexus
+		启动nexus
+	客户端
+		上传jar包
+		1.修改/conf/settings.xml文件，配置连接私服的用户名和密码
+		<server>
+	      <id>releases</id>
+	      <username>admin</username>
+	      <password>admin123</password>
+	    </server>
+		<server>
+	      <id>snapshots</id>
+	      <username>admin</username>
+	      <password>admin123</password>
+	    </server>
+		
+		
+		2.配置私服仓库的地址，本公司的自己的jar包会上传到私服的宿主仓库，根据工程的版本号决定上传到哪
+	个宿主仓库，如果版本为release则上传到私服的release仓库，如果版本为snapshot则上传到私服的snapshot
+	仓库
+	  <distributionManagement>
+	  	<repository>
+	  		<id>releases</id>
+			<url>http://localhost:8081/nexus/content/repositories/releases/</url>
+	  	</repository> 
+	  	<snapshotRepository>
+	  		<id>snapshots</id>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
+	  	</snapshotRepository> 
+	  </distributionManagement>
+
+		注意：pom.xml里的<id> 和 settings.xml 配置 <id> 对应！ 
+		3.执行deploy命令发布到私服
+		
+		下载jar包
+		1.修改settings.xml
+		<profile>   
+			<!--profile的id-->
+		    <id>dev</id>   
+		    <repositories>   
+		      <repository>  
+				<!--仓库id，repositories可以配置多个仓库，保证id不重复-->
+		        <id>nexus</id>   
+				<!--仓库地址，即nexus仓库组的地址-->
+		        <url>http://localhost:8081/nexus/content/groups/public/</url>   
+				<!--是否下载releases构件-->
+		        <releases>   
+		          <enabled>true</enabled>   
+		        </releases>   
+				<!--是否下载snapshots构件-->
+		        <snapshots>   
+		          <enabled>true</enabled>   
+		        </snapshots>   
+		      </repository>   
+		    </repositories>  
+			 <pluginRepositories>  
+		    	<!-- 插件仓库，maven的运行依赖插件，也需要从私服下载插件 -->
+		        <pluginRepository>  
+		        	<!-- 插件仓库的id不允许重复，如果重复后边配置会覆盖前边 -->
+		            <id>public</id>  
+		            <name>Public Repositories</name>  
+		            <url>http://localhost:8081/nexus/content/groups/public/</url>  
+		        </pluginRepository>  
+		    </pluginRepositories>  
+		  </profile>  
+		
+		  <activeProfiles>
+		    <activeProfile>dev</activeProfile>
+		  </activeProfiles>
+
+		2.删除本地仓库中的dao
+
+		3.update service工程，出现以下信息说明已经成功

@@ -1,0 +1,71 @@
+						kang lai ke shen
+						Collection接口
+			继承									继承
+			List列表	 						    Set集
+     实现			       实现			             实现				   实现					     继承
+ArrayList		 LinkedList			 HashSet		 LinkedHashSet				SortedSet
+ 数组列表			链表				   哈希表		     基于链表的哈希表实现			     实现
+ 																				 TreeSet
+ 
+Arraylist与LinkedList的区别：
+	1.ArrayList和LinkedList是List接口的实现类。
+    2.ArrayList是动态数组的数据结构。它的存储地址是连续的，所以查询时比较快，但是在插入和删除时，
+由于需要把其它的元素顺序向后移动，所以比较耗时。
+    3.LinkedList是链表的数据结构。链表的存储地址是不连续的，每个存储地址通过指针指向，在查询时需
+要进行通过指针遍历元素，所以在查询时比较慢。由于链表插入时不需移动其它元素，所以在插入和删除时比
+较快。
+
+List与Set的区别：
+	共性：
+		都是继承自Collection接口
+	不同：
+		List	元素可重复			有序
+		Set		元素不可重复			无序
+	
+HashSet/LinkedHashSet/TreeSet的区别
+	HashSet		元素不可重复		无序的
+	LinkedHashSet		在迭代元素时比HashSet性能好，
+	TreeSet		是SortedSet接口的唯一实现类，TreeSet可以确保集合元素处于排序状态
+方法：
+	add()
+	get()
+	remove()
+	size()
+	clear()
+	toArray()
+	isEmpty()
+	toString()
+
+遍历：
+	1.迭代器
+	2.增强for循环
+
+排序：
+	Collections.sort()	可对list set排序
+		map集合转换成list<Map.Entry<String,String>>也可排序
+
+i te ruai te
+Iterator接口（迭代器）：while
+	hasNext()	如果仍有元素可以迭代返回true
+	next()		返回迭代的下一个元素
+	实现类：
+		Collection接口的iterator()方法
+		Iterator<Object> iterator = list.iterator();
+		
+增强for循环遍历集合：
+	List<Persion> list = new ArrayList<Persion>();
+	for(Persion persion : list){
+		System.out.print(persion);
+	}
+	
+泛型：
+	引入：由于集合中是可以存储任何类型的元素，故取出时类型强转可能会出现异常。故使用泛型
+	使用：创建集合时指定集合的类型
+	通配符：？
+		不指定list的类型
+		public void list(ArrayList<?> list){}
+		不指定list的类型，但必须继承Presion接口
+		public void list(ArrayList<? extends Presion> list){}
+	
+转换：
+	转数组toArray()

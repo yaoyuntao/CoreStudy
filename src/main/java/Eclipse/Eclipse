@@ -1,0 +1,31 @@
+快捷键
+	F3/Ctrl+类名		查看源代码
+	Ctrl+T			查看类的继承体系
+	Ctrl+S			try	if do while for runnable synchronized
+	Ctrl+Z			get/set toString hashCode/equals
+	Ctrl+Shift+O	去掉无用的包
+	Ctrl+1			快速生成方法返回值类型和变量名
+	Alt+Shift+L		快速生成语句的返回值
+导出文档注释/** */
+	Export-Javadoc-选择需要导出的工程和存放的路径
+	注：
+		如导出时提示-错误: 编码gbk的不可映射字符
+		则在导出步骤的vm options选项中添加-encoding UTF-8 -charset UTF-8即可
+导出jar包
+	Export-JAR file-选择需要导出的工程或类和存放的路径
+导入jar包
+	在工程根目录创建lib文件夹，把jar包拷贝进去，然后右键Build Path-add
+	
+修饰符
+	public		公开的		类  方法  成员变量
+	protected	受保护的		方法  成员变量			只能是它的子类访问
+	默认						类  方法  成员变量
+	private		私有的		方法  成员变量
+	static		静态			方法  成员变量
+	final		最终			类  方法  成员变量	 局部变量	修饰的类不能被继承，方法不能被覆盖，变量只能赋值一次
+	abstract	抽象			类  方法				抽象的类需要子类继承
+	
+	不能混用
+	abstract与private
+	abstract与static
+	abstract与final
